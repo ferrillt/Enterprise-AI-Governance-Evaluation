@@ -83,7 +83,7 @@ The acceptance criteria are defined in Section 11 of the [System Requirements Sp
 | AC-05 | Architecture identifies major components, interfaces, and trust boundaries | Meets at design level | System Architecture |
 | AC-06 | Logical data model documents all seven proposed entities and relationships | Meets at logical level | System Architecture |
 | AC-07 | Access-control matrix defines at least four user roles and authorized operations | Meets | Governance Framework |
-| AC-08 | Evaluation plan defines 50 benchmark cases and expected outcomes | Partially Meets | Evaluation Plan |
+| AC-08 | Evaluation plan defines 50 benchmark cases and expected outcomes | Meets at design level | Evaluation Plan and `evaluation/benchmark/test_cases.csv` — 50 cases with expected behaviors |
 | AC-09 | Risk register contains at least ten risks with likelihood, impact, owner, and response | Meets | Risk Register |
 | AC-10 | Every functional requirement maps to at least one planned verification activity | Meets at planning level | Requirements and Evaluation Plan |
 | AC-11 | Required Milestone 1 documents are accessible through the repository README | Meets | README — all six documentation links verified |

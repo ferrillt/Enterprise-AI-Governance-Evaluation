@@ -96,6 +96,10 @@ The following assessments represent initial design-stage estimates. They are not
 | R-09 | Incomplete benchmark coverage | 4 | 4 | 16 | High |
 | R-10 | Evaluation bias or overfitting | 3 | 4 | 12 | High |
 
+### 4.1 - Risk Assessment Summary
+
+
+
 ## 5. Detailed Risk Assessments
 
 ### R-01 — Incorrect AI-Generated Analytical Queries

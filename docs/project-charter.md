@@ -134,4 +134,112 @@ The project will compare three AI analytics configurations.
 |---|---|
 | A — Baseline | AI analytics using approved database schema information |
 | B — Metadata-Enriched | Baseline capabilities supplemented with business glossary and approved metric definitions |
-| C — Governed | Metadata-enriched analytics supplemented with explicit authorization, SQL validation, controlled
+| C — Governed | Metadata-enriched analytics supplemented with explicit authorization, SQL validation, controlled execution, and answer verification |
+
+All configurations will operate within a common minimum security boundary to prevent unrestricted database access.
+
+The initial evaluation will use 50 predefined test cases covering basic analytical questions, business definitions, complex analytical requests, authorization policies, and ambiguous or unsupported requests.
+
+Analytical correctness will be assessed against independently verified reference results. Authorization and security outcomes will be evaluated separately.
+
+## 10. Project Success Criteria
+
+The following targets are proposed for the fully governed configuration.
+
+| Metric | Initial Target |
+|---|---|
+| Analytical Accuracy | At least 90% correct responses on supported analytical questions |
+| Authorization Compliance | Zero successful unauthorized data disclosures in the defined security test suite |
+| Reliability | At least 95% successful completion of authorized, supported requests |
+| Response Latency | 95th-percentile end-to-end latency no greater than 15 seconds |
+| Evaluation Traceability | 100% of evaluated requests linked to configuration and test case |
+| Cost Observability | Token usage and estimated model cost recorded for at least 99% of completed LLM calls |
+| Reproducibility | Documented procedures sufficient to reproduce datasets, tests, and evaluation results |
+
+These values represent initial acceptance targets rather than demonstrated system performance. Actual results, deviations, and limitations will be documented during evaluation.
+
+## 11. Assumptions and Constraints
+
+### 11.1 Assumptions
+
+- Synthetic data will provide sufficient complexity to demonstrate enterprise analytical scenarios.
+- A configurable LLM API will be available during implementation and evaluation.
+- Reference SQL queries can establish independently verified analytical results.
+- Representative enterprise roles and policies can be simulated without using sensitive organizational information.
+- The selected technical environment will support repeatable experiments.
+
+### 11.2 Constraints
+
+- Development will be conducted as an independent portfolio project.
+- The implementation will use publicly available tools and synthetic data.
+- API usage and computational costs will be controlled.
+- The solution will not be represented as production-certified or formally compliant with regulatory requirements.
+- Evaluation results will be limited to the selected dataset, configurations, and test scenarios.
+
+## 12. Initial Project Risks
+
+| Risk ID | Risk Description | Planned Mitigation |
+|---|---|---|
+| R-01 | Incorrect AI-generated analytical queries | Reference SQL validation and automated evaluation |
+| R-02 | Unauthorized data disclosure | Independent authorization and least-privilege controls |
+| R-03 | Ambiguous business definitions | Approved glossary and documented metric calculations |
+| R-04 | Prompt injection or unsafe tool behavior | Input isolation, restricted execution, and policy enforcement |
+| R-05 | Inconsistent evaluation results | Versioned configurations and repeatable test procedures |
+| R-06 | Unexpected LLM operating costs | Usage tracking and defined evaluation limits |
+| R-07 | Changes in LLM behavior or availability | Model version documentation and configurable provider integration |
+| R-08 | Sensitive information recorded in logs | Synthetic data, log minimization, and redaction controls |
+| R-09 | Incomplete benchmark coverage | Defined test categories and requirements traceability |
+| R-10 | Evaluation bias or overfitting | Predefined test cases and transparent reporting of limitations |
+
+Detailed risk assessments, ownership, likelihood, impact, and response strategies will be maintained in `docs/risk-register.md`.
+
+## 13. Project Milestones and Deliverables
+
+| Milestone | Description | Primary Deliverables |
+|---|---|---|
+| M1 | Architecture and Requirements | Charter, requirements, architecture, governance framework, risk register, evaluation plan |
+| M2 | Data and Governance Foundation | Synthetic dataset, logical data model, business glossary, access policies |
+| M3 | AI Analytics Implementation | Baseline and metadata-enriched AI configurations |
+| M4 | Governance and Validation | Authorization enforcement, query validation, audit logging, governed configuration |
+| M5 | Evaluation and Publication | Comparative evaluation, results, visualizations, technical report, portfolio documentation |
+
+Milestone completion will be based on verified deliverables and acceptance criteria rather than elapsed time.
+
+## 14. Milestone 1 Acceptance Criteria
+
+Milestone 1 will be considered complete when:
+
+1. The project charter documents the business problem, objectives, scope, stakeholders, and success measures.
+2. Functional and nonfunctional requirements are uniquely identified and verifiable.
+3. The proposed architecture identifies major components, interfaces, and trust boundaries.
+4. The logical data model defines the primary enterprise entities and relationships.
+5. The access-control model identifies representative user roles and authorized operations.
+6. The evaluation plan defines the benchmark categories, expected outcomes, and scoring methodology.
+7. The risk register identifies at least ten risks with ownership and response strategies.
+8. Functional requirements are mapped to planned verification activities.
+9. Required Milestone 1 documentation is available in the GitHub repository.
+10. Critical architectural and security issues are resolved or explicitly documented before implementation begins.
+
+## 15. Project Deliverables and Expected Value
+
+The completed project will provide a reproducible demonstration of enterprise AI architecture and governance principles.
+
+Expected deliverables include an implemented AI analytics proof of concept, synthetic enterprise dataset, documented governance controls, automated evaluation framework, comparative performance results, and supporting technical documentation.
+
+The project is intended to demonstrate competencies in enterprise architecture, data engineering, AI integration, governance, security, systems engineering, and evidence-based technical decision-making.
+
+Its value will be established through measured results and documented architectural tradeoffs rather than assumptions about AI performance.
+
+## 16. References
+
+National Institute of Standards and Technology. (2023). *Artificial intelligence risk management framework (AI RMF 1.0).* https://doi.org/10.6028/NIST.AI.100-1
+
+National Institute of Standards and Technology. (2024). *Artificial intelligence risk management framework: Generative artificial intelligence profile (NIST AI 600-1).* https://doi.org/10.6028/NIST.AI.600-1
+
+OWASP Foundation. (n.d.). *OWASP Top 10 for large language model applications.* https://genai.owasp.org/llm-top-10/
+
+---
+
+**Project Status:** Milestone 1 — Architecture and Requirements in Progress
+
+**Next Deliverable:** `docs/requirements.md`

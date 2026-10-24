@@ -296,4 +296,3 @@ OWASP Foundation. (n.d.). *OWASP Top 10 for large language model applications.* 
 
 **Document Status:** Draft — Milestone 1
 
-**Next Deliverable:** `docs/architecture.md`

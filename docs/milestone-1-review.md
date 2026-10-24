@@ -3,7 +3,7 @@
 
 **Version:** 1.0  
 **Date:** October 24, 2026  
-**Design Baseline:** Accepted — Administrative Closure Pending 
+**Design Baseline:** Accepted — Administrative Closure Pending   
 **Milestone:** M1 — Architecture and Requirements  
 **Review Type:** Design Baseline and Acceptance Review
 

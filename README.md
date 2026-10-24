@@ -67,6 +67,8 @@ The following Milestone 1 design documents have been drafted and are undergoing 
 | [Governance Framework](docs/governance-framework.md) | Data classification, authorization, business glossary governance, AI oversight, and policy controls |
 | [Risk Register](docs/risk-register.md) | Risk identification, assessment methodology, mitigation strategies, ownership, and verification planning |
 | [Evaluation Plan](docs/evaluation-plan.md) | Benchmark design, experimental configurations, evaluation metrics, scoring, and reproducibility procedures |
+| [Milestone 1 Review](docs/milestone-1-review.md) | Milestone 1 acceptance assessment and closure record — Drafted |
+| [Evaluation Benchmark](evaluation/benchmark/test_cases.csv) | Fifty benchmark cases with expected behaviors — Drafted |
 
 These documents establish the proposed design baseline. 
 

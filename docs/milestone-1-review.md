@@ -49,6 +49,7 @@ The objectives are to:
 | [Governance Framework](governance-framework.md) | Data classification, authorization, policy enforcement | Drafted |
 | [Risk Register](risk-register.md) | Risk identification, scoring, mitigation, verification | Drafted |
 | [Evaluation Plan](evaluation-plan.md) | Benchmark design, metrics, scoring, reproducibility | Drafted |
+| [Evaluation Benchmark](evaluation/benchmark/test_cases.csv) | Fifty predefined analytical, governance, and unsupported-request test cases |
 | [Milestone 1 Review](docs/milestone-1-review.md) | Architecture and requirements acceptance assessment, design findings, open issues, and milestone closure criteria | Drafted |
 
 ### 3.2 Review Boundaries
@@ -307,7 +308,7 @@ Outstanding activities include:
 
 | ID | Issue or Action | Priority | Planned Resolution | Status |
 |---|---|---|---|---|
-| DI-01 | Complete individual benchmark case definitions and expected behaviors | High | Create `evaluation/benchmark/test_cases.csv` | Open |
+| DI-01 | Complete individual benchmark case definitions and expected behaviors | High | Created `evaluation/benchmark/test_cases.csv` with 50 cases; numerical reference results deferred to Milestone 2 | Closed — Inventory Verified |
 | DI-02 | Verify README links to all Milestone 1 documents | High | Update and inspect `README.md` | Closed - Verified |
 | DI-03 | Resolve multi-business-unit authorization representation | High | Document physical authorization mapping in the data dictionary | Open |
 | DI-04 | Define common versus configuration-specific security controls | High | Refine configuration control matrix | Open |

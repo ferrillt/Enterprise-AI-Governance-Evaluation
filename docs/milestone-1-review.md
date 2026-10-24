@@ -49,7 +49,7 @@ The objectives are to:
 | [Governance Framework](governance-framework.md) | Data classification, authorization, policy enforcement | Drafted |
 | [Risk Register](risk-register.md) | Risk identification, scoring, mitigation, verification | Drafted |
 | [Evaluation Plan](evaluation-plan.md) | Benchmark design, metrics, scoring, reproducibility | Drafted |
-| [Milestone 1 Review](docs/milestone-1-review.md) | Architecture and requirements acceptance assessment, design findings, open issues, and milestone closure criteria |
+| [Milestone 1 Review](docs/milestone-1-review.md) | Architecture and requirements acceptance assessment, design findings, open issues, and milestone closure criteria | Drafted |
 
 ### 3.2 Review Boundaries
 

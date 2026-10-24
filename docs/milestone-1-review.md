@@ -49,8 +49,8 @@ The objectives are to:
 | [Governance Framework](governance-framework.md) | Data classification, authorization, policy enforcement | Drafted |
 | [Risk Register](risk-register.md) | Risk identification, scoring, mitigation, verification | Drafted |
 | [Evaluation Plan](evaluation-plan.md) | Benchmark design, metrics, scoring, reproducibility | Drafted |
-| [Evaluation Benchmark](evaluation/benchmark/test_cases.csv) | Fifty predefined analytical, governance, and unsupported-request test cases | Drafted |
-| [Milestone 1 Review](docs/milestone-1-review.md) | Architecture and requirements acceptance assessment, design findings, open issues, and milestone closure criteria | Drafted |
+| [Milestone 1 Review](docs/milestone-1-review.md) | Milestone 1 acceptance assessment, design findings, open issues, and closure criteria | Drafted |
+| [Evaluation Benchmark](evaluation/benchmark/test_cases.csv) | Fifty predefined analytical, governance, and unsupported-request cases | Drafted |
 
 ### 3.2 Review Boundaries
 
@@ -418,6 +418,6 @@ Review findings will be revisited as implementation and evaluation evidence beco
 
 ---
 
-**Milestone 1 Review Status:** Conditional Acceptance — Pending Final Verification
+**Milestone 1 Review Status:** Design Baseline Accepted — Administrative Closure Pending  
 
-**Next Planned Activity:** Resolve outstanding acceptance conditions and begin Milestone 2 data dictionary design.
+**Next Planned Activity:** Disposition remaining design issues, verify repository navigation, and finalize Milestone 1 administrative closure.

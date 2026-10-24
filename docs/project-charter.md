@@ -241,5 +241,3 @@ OWASP Foundation. (n.d.). *OWASP Top 10 for large language model applications.* 
 ---
 
 **Project Status:** Milestone 1 — Architecture and Requirements in Progress
-
-**Next Deliverable:** `docs/requirements.md`

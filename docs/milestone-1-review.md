@@ -85,7 +85,7 @@ The acceptance criteria are defined in Section 11 of the [System Requirements Sp
 | AC-08 | Evaluation plan defines 50 benchmark cases and expected outcomes | Partially Meets | Evaluation Plan |
 | AC-09 | Risk register contains at least ten risks with likelihood, impact, owner, and response | Meets | Risk Register |
 | AC-10 | Every functional requirement maps to at least one planned verification activity | Meets at planning level | Requirements and Evaluation Plan |
-| AC-11 | Required Milestone 1 documents are accessible through the repository README | Pending Repository Verification | README |
+| AC-11 | Required Milestone 1 documents are accessible through the repository README | Meets | README — all six documentation links verified |
 
 ### 4.2 Acceptance Summary
 

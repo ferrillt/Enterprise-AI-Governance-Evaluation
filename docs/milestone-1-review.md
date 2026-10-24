@@ -49,6 +49,7 @@ The objectives are to:
 | [Governance Framework](governance-framework.md) | Data classification, authorization, policy enforcement | Drafted |
 | [Risk Register](risk-register.md) | Risk identification, scoring, mitigation, verification | Drafted |
 | [Evaluation Plan](evaluation-plan.md) | Benchmark design, metrics, scoring, reproducibility | Drafted |
+| [Milestone 1 Review](docs/milestone-1-review.md) | Architecture and requirements acceptance assessment, design findings, open issues, and milestone closure criteria |
 
 ### 3.2 Review Boundaries
 
@@ -109,12 +110,6 @@ To satisfy the criterion as currently written, the project must either:
 - Formally revise AC-08 to require the benchmark structure and evaluation methodology during Milestone 1, with individual case development scheduled for Milestone 2.
 
 The preferred approach is to retain the existing acceptance criterion and establish the individual benchmark case inventory before final Milestone 1 acceptance.
-
-**AC-11 — Repository Navigation**
-
-The README must provide working links to all six Milestone 1 documents.
-
-The revised README prepared during Step 1 addresses this requirement, but the updated file and links must be verified in the repository before AC-11 is marked complete.
 
 ## 5. Requirements Completeness Review
 
@@ -313,7 +308,7 @@ Outstanding activities include:
 | ID | Issue or Action | Priority | Planned Resolution | Status |
 |---|---|---|---|---|
 | DI-01 | Complete individual benchmark case definitions and expected behaviors | High | Create `evaluation/benchmark/test_cases.csv` | Open |
-| DI-02 | Verify README links to all Milestone 1 documents | High | Update and inspect `README.md` | Pending Verification |
+| DI-02 | Verify README links to all Milestone 1 documents | High | Update and inspect `README.md` | Closed - Verified |
 | DI-03 | Resolve multi-business-unit authorization representation | High | Document physical authorization mapping in the data dictionary | Open |
 | DI-04 | Define common versus configuration-specific security controls | High | Refine configuration control matrix | Open |
 | DI-05 | Establish SQL parsing and validation design | High | Document validator behavior and negative test scenarios | Open |
@@ -367,7 +362,6 @@ The remaining acceptance activities concern benchmark completeness, repository n
 ### 13.1 Required Actions Before Closure
 
 - Complete or formally disposition AC-08.
-- Verify AC-11 after the README update.
 - Record decisions for design issues that affect Milestone 2 implementation.
 - Update this review with the final acceptance determination.
 
@@ -379,7 +373,6 @@ The remaining acceptance activities concern benchmark completeness, repository n
 | Review Date | October 24, 2026 |
 | Current Decision | Conditional Acceptance |
 | Final Decision | Pending |
-| Outstanding Acceptance Items | AC-08, AC-11 |
 | Next Milestone | M2 — Data and Governance Foundation |
 | Final Closure Date | Pending |
 

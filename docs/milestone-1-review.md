@@ -92,25 +92,30 @@ The acceptance criteria are defined in Section 11 of the [System Requirements Sp
 
 | Assessment | Number of Criteria |
 |---|---:|
-| Meets / Meets at Design Level | 10 |
-| Partially Meets | 1 |
+| Meets / Meets at Design Level | 11 |
+| Partially Meets | 0 |
 | Pending Repository Verification | 0 |
 | **Total** | **11** |
 
-These assessments reflect the documentation reviewed as of October 24, 2026. They are preliminary acceptance findings, not evidence of implemented system functionality.
+All eleven Milestone 1 acceptance criteria have been satisfied at the documented design level.
 
-### 4.3 Outstanding Acceptance Conditions
+These findings establish the completeness of the initial design baseline. They do not constitute evidence that the proposed system has been implemented or that its security, accuracy, reliability, or performance targets have been achieved.
+
+### 4.3 Acceptance Conditions and Deferred Verification
 
 **AC-08 — Benchmark Definition**
 
-The evaluation plan establishes five benchmark categories containing ten planned cases each, for a total of 50 cases. However, the individual questions, expected outcomes, and reference-answer specifications have not yet been fully enumerated.
+The evaluation plan defines five benchmark categories containing ten cases each. The benchmark inventory, `evaluation/benchmark/test_cases.csv`, contains all 50 individually identified test cases with associated questions, user roles, authorized scopes, expected behaviors, scoring rules, and requirements and risk references.
 
-To satisfy the criterion as currently written, the project must either:
+The benchmark satisfies AC-08 at the Milestone 1 design level.
 
-- Define all 50 individual benchmark cases and expected behaviors before Milestone 1 closure; or
-- Formally revise AC-08 to require the benchmark structure and evaluation methodology during Milestone 1, with individual case development scheduled for Milestone 2.
+Numerical reference results and independently verified reference SQL remain pending until the synthetic enterprise dataset and physical schema are established during Milestone 2. These activities will be tracked as implementation and evaluation verification deliverables under ER-04.
 
-The preferred approach is to retain the existing acceptance criterion and establish the individual benchmark case inventory before final Milestone 1 acceptance.
+**AC-11 — Repository Navigation**
+
+All six required Milestone 1 design documents are accessible through the repository README. AC-11 is verified and closed.
+
+**Acceptance Assessment:** No outstanding Milestone 1 acceptance criteria remain. Implementation-level verification activities are deferred to their designated milestones.
 
 ## 5. Requirements Completeness Review
 
@@ -352,19 +357,19 @@ Closing Milestone 1 does not imply that the proposed AI system is implemented, o
 
 ## 13. Review Decision
 
-**Current Decision: Conditional Acceptance — Pending Final Verification**
+**Current Decision: Design Baseline Accepted — Administrative Closure Pending**
 
-The Milestone 1 documentation establishes a coherent foundation for the Enterprise AI Governance & Evaluation project.
+The Milestone 1 review confirms that all eleven acceptance criteria have been satisfied at the design level.
 
-The project has documented its business objectives, requirements, logical architecture, governance model, risk management approach, and evaluation methodology.
+The project has established its business objectives, requirements baseline, logical architecture, governance framework, risk register, evaluation methodology, and 50-case benchmark inventory.
 
-The remaining acceptance activities concern benchmark completeness, repository navigation verification, and disposition of identified design issues.
+Outstanding implementation-level design issues remain documented in Section 10. Before administrative closure, the project will record their disposition and confirm that each issue has an assigned resolution milestone.
 
 ### 13.1 Required Actions Before Closure
 
-- Complete or formally disposition AC-08.
-- Record decisions for design issues that affect Milestone 2 implementation.
-- Update this review with the final acceptance determination.
+- Confirm the disposition and target milestone for DI-03 through DI-08.
+- Verify that the README links to the Milestone 1 review and evaluation benchmark.
+- Record the final Milestone 1 closure decision.
 
 ### 13.2 Final Acceptance Record
 
@@ -372,12 +377,15 @@ The remaining acceptance activities concern benchmark completeness, repository n
 |---|---|
 | Milestone | M1 — Architecture and Requirements |
 | Review Date | October 24, 2026 |
-| Current Decision | Conditional Acceptance |
-| Final Decision | Pending |
+| Acceptance Criteria | 11 of 11 Met at Design Level |
+| Current Decision | Design Baseline Accepted |
+| Final Administrative Closure | Pending Design Issue Disposition |
+| Outstanding Acceptance Criteria | None |
+| Deferred Verification | Reference SQL, numerical results, and implementation testing |
 | Next Milestone | M2 — Data and Governance Foundation |
 | Final Closure Date | Pending |
 
-The final acceptance record will be updated after outstanding criteria have been verified.
+The approved design baseline does not establish operational readiness, verified security effectiveness, or achievement of performance targets.
 
 ## 14. Milestone 2 Readiness
 

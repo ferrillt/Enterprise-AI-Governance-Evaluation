@@ -98,7 +98,9 @@ The following assessments represent initial design-stage estimates. They are not
 
 ### 4.1 - Risk Assessment Summary
 
+![Risk Assessment Summary](../images/RiskAssessmentSummary.png)
 
+The initial assessment identified ten project risks, including eight classified as High and two as Moderate. The concentration of High risks reflects the project's emphasis on analytical accuracy, authorization, AI security, and evaluation reliability. All risks remain open, with mitigation strategies defined but not yet implemented or verified. Risk ratings will be reassessed as controls are implemented and supporting evidence becomes available.  
 
 ## 5. Detailed Risk Assessments
 

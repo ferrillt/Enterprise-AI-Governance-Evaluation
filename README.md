@@ -69,6 +69,7 @@ The following documents establish the approved Milestone 1 architecture and requ
 | [Evaluation Plan](docs/evaluation-plan.md) | Benchmark design, experimental configurations, evaluation metrics, scoring, and reproducibility procedures |
 | [Milestone 1 Review](docs/milestone-1-review.md) | Milestone 1 acceptance assessment and closure record |
 | [Evaluation Benchmark](evaluation/benchmark/test_cases.csv) | Fifty benchmark cases with expected behaviors |
+| [Data Dictionary](docs/data-dictionary.md) | Includes all seven business entities |
 
 These documents establish the proposed design baseline. 
 

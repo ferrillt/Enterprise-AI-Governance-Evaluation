@@ -199,7 +199,7 @@ The following matrix defines proposed access permissions for the synthetic enter
 | Aggregated Sales Metrics | Assigned Unit | Assigned Units | Authorized Units | Metadata Only | No Default Access |
 | Customer-Level Sales | Assigned Unit | Assigned Units | Authorized Units | No Default Access | No Default Access |
 | Product Catalog | Read | Read | Read | Read | Configuration Only |
-| Product Standard Costs | Denied | Denied | Authorized Units | Metadata Only | Denied |
+| Product Standard Costs | Denied | Denied | Denied — Pending Policy Approval | Metadata Only | Denied |
 | Business Glossary | Read | Read | Read | Maintain | Configuration Only |
 | User Permissions | Denied | Denied | Denied | Denied | Maintain |
 | Modify Transaction Data | Denied | Denied | Denied | Denied | Denied |
@@ -214,6 +214,8 @@ The following matrix defines proposed access permissions for the synthetic enter
 - **Maintain:** Permission to update designated metadata or configuration through a controlled administrative process.
 - **Configuration Only:** Access to system configuration without automatic access to business data.
 - **Denied:** No permission to perform the requested operation.
+
+**Restricted Product-Cost Policy — AP-09:** `PRODUCTS.standard_cost_cents` is Restricted. Finance Analyst membership and authorized business-unit assignments do not, by themselves, grant cost access. Because `PRODUCTS` is a shared catalog without direct unit ownership, cost disclosure remains denied until an approved policy defines eligible product-to-unit relationships, explicit column permission, trusted scope enforcement, and negative authorization tests. This is a documented policy disposition, not evidence of an implemented runtime control. See [Data Dictionary](data-dictionary.md) and [Evaluation Benchmark](../evaluation/benchmark/test_cases.csv) (AP-09).
 
 The matrix represents proposed policy behavior. Detailed permissions will be implemented and verified during subsequent milestones.
 
@@ -260,7 +262,7 @@ Approved definitions will be maintained independently of LLM-generated responses
 | Average Order Value | Net sales divided by the number of eligible orders | Apply the approved net sales and order eligibility definitions. |
 | Product Sales | Net sales aggregated by product or category | Respect product, transaction, and business-unit access restrictions. |
 
-These definitions are preliminary and will be refined during data modeling.
+The six metric definitions are specified in [Business Metrics](business-metrics.md). They remain `DRAFT` until an explicit simulated Data Owner approval decision is recorded, with version and effective date synchronized to `BUSINESS_METRICS`. Reference calculations are provisional until that approval and independent verification.
 
 ### 9.3 Metadata Requirements
 
@@ -492,11 +494,11 @@ The initial governance framework has the following limitations:
 
 - Roles and approval authorities are simulated.
 - Data classification policies have not yet been implemented.
-- The business glossary requires finalized calculation definitions.
+- The six business metric definitions are documented, but formal approval remains pending.
 - SQLite does not provide native enterprise row-level security.
 - The policy enforcement mechanism requires implementation and testing.
 - Formal regulatory compliance assessment is outside project scope.
-- The risk register and evaluation benchmark remain to be completed.
+- The risk register and 50-case evaluation benchmark are documented. The benchmark contains 30 provisional analytical references and 20 behavioral expectations; runtime evaluation remains pending.
 - Governance effectiveness has not yet been measured.
 
 These limitations will be addressed or documented through subsequent project milestones.
@@ -511,4 +513,6 @@ OWASP Foundation. (n.d.). *OWASP Top 10 for large language model applications.* 
 
 ---
 
-**Document Status:** Draft — Milestone 1
+**Document Status:** Milestone 1 governance design baseline; Milestone 2 policy alignment updated. Restricted-cost enforcement, metric approval, and AI/runtime evaluation remain open.
+
+**Milestone 2 evidence:** The user-reported local automated suite passed 28 tests (14 data-quality; 14 reference-answer), zero failures, in 0.246 seconds. These tests do not establish production authorization or LLM behavior. See [Milestone 2 Review](milestone-2-review.md).

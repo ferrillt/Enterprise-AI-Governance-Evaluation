@@ -254,6 +254,8 @@ If a metric changes, record the reason, affected requirements, benchmark cases, 
 | BM-14 | Deterministic ranking | Equal-value ties resolved by stable key |
 | BM-15 | Currency and presentation rounding | Integer cents preserved; displayed values follow rules |
 | BM-16 | Authorization failures and unsupported concepts | Denial or clarification, never fabricated values |
+| BM-17 | Completion-date integrity | Completed orders have valid completion dates; pending and canceled orders have null completion dates |
+| BM-18 | Metric reconciliation | Recognized gross sales minus eligible discounts equals recognized net sales for identical authorized scopes and reporting periods |
 
 No test results are asserted here. Implement tests after the schema and dataset are available, and record their outcomes as Milestone 2 evidence.
 

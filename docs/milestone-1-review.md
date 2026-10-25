@@ -311,16 +311,16 @@ Outstanding activities include:
 
 ## 10. Design Issue and Action Register
 
-| ID | Issue or Action | Priority | Planned Resolution | Status |
+| ID | Issue or Action | Priority | Planned Resolution | Status | Target Milestone |
 |---|---|---|---|---|
-| DI-01 | Complete individual benchmark case definitions and expected behaviors | High | Created `evaluation/benchmark/test_cases.csv` with 50 cases; numerical reference results deferred to Milestone 2 | Closed — Inventory Verified |
+| DI-01 | Complete individual benchmark case definitions and expected behaviors | High | Created `evaluation/benchmark/test_cases.csv` with 50 cases; numerical reference results deferred to Milestone 2 | Closed — Inventory Verified | 
 | DI-02 | Verify README links to all Milestone 1 documents | High | Update and inspect `README.md` | Closed - Verified |
-| DI-03 | Resolve multi-business-unit authorization representation | High | Document physical authorization mapping in the data dictionary | Open |
-| DI-04 | Define common versus configuration-specific security controls | High | Refine configuration control matrix | Open |
-| DI-05 | Establish SQL parsing and validation design | High | Document validator behavior and negative test scenarios | Open |
-| DI-06 | Define boundaries of result verification | Medium | Document deterministic and non-deterministic verification methods | Open |
-| DI-07 | Expand requirement-to-test-case traceability | Medium | Create detailed traceability matrix | Open |
-| DI-08 | Standardize minor Markdown formatting and documentation navigation | Low | Apply documentation cleanup | Open |
+| DI-03 | Resolve multi-business-unit authorization representation | High | Document physical authorization mapping in the data dictionary | Open | M2 |
+| DI-04 | Define common versus configuration-specific security controls | High | Refine configuration control matrix | Open | M2 |
+| DI-05 | Establish SQL parsing and validation design | High | Document validator behavior and negative test scenarios | Open | M3-M4 |
+| DI-06 | Define boundaries of result verification | Medium | Document deterministic and non-deterministic verification methods | Open  M4 ||
+| DI-07 | Expand requirement-to-test-case traceability | Medium | Create detailed traceability matrix | Open | M2-M5 |
+| DI-08 | Standardize minor Markdown formatting and documentation navigation | Low | Apply documentation cleanup | Open | M1 |
 
 An open issue does not automatically prevent Milestone 1 acceptance. Acceptance depends on whether the issue affects a required criterion, creates an unresolved critical design risk, or has an approved disposition for a later milestone.
 

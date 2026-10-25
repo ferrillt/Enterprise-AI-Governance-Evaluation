@@ -318,7 +318,7 @@ Outstanding activities include:
 | DI-03 | Resolve multi-business-unit authorization representation | High | Document physical authorization mapping in the data dictionary | Open | M2 |
 | DI-04 | Define common versus configuration-specific security controls | High | Refine configuration control matrix | Open | M2 |
 | DI-05 | Establish SQL parsing and validation design | High | Document validator behavior and negative test scenarios | Open | M3-M4 |
-| DI-06 | Define boundaries of result verification | Medium | Document deterministic and non-deterministic verification methods | Open  M4 ||
+| DI-06 | Define boundaries of result verification | Medium | Document deterministic and non-deterministic verification methods | Open | M4 |
 | DI-07 | Expand requirement-to-test-case traceability | Medium | Create detailed traceability matrix | Open | M2-M5 |
 | DI-08 | Standardize minor Markdown formatting and documentation navigation | Low | Apply documentation cleanup | Open | M1 |
 

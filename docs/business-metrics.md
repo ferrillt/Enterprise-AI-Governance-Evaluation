@@ -59,6 +59,8 @@ The approved status vocabulary in the proposed data dictionary is `PENDING`, `CO
 
 **Important distinction:** Gross Sales, when used without a qualifier, means *recognized gross sales before discounts on completed orders*. The gross value of canceled or pending orders is available only as a separately labeled diagnostic, never added to recognized sales. This makes BA-02/BD-01 and BD-10 consistent without counting canceled orders as revenue.
 
+Orders with status PENDING or CANCELED shall have a null completed_date in the initial synthetic dataset. Records violating the completion-date rules shall fail data-quality validation before benchmark reference calculations.
+
 `completed_date` must be present and not earlier than `order_date` for completed orders. Non-completed orders must not be assigned recognized revenue. No returns, refunds, tax, shipping, partial fulfillment, multi-currency conversion, or historical cost adjustments are modeled; requests requiring these concepts must be qualified or rejected.
 
 ### 2.4 Reporting date and time conventions
@@ -72,7 +74,7 @@ The approved status vocabulary in the proposed data dictionary is `PENDING`, `CO
 - “This year to date” means January 1 through `as_of_date`, inclusive; implement as an exclusive upper bound of the next calendar day.
 - “Last N completed months” excludes the current partial month. “Last 90 days” includes the 90 calendar dates ending on `as_of_date`.
 - Year-over-year comparisons use matched calendar windows and date bases. Month-over-month calculations use chronologically adjacent months.
-- If `as_of_date`, the requested period, or the date basis cannot be resolved safely, ask for clarification or document an explicit interpretation; do not silently use today's date.
+- If `as_of_date`, the requested period, or the date basis cannot be resolved safely, ask for clarification or document an explicit interpretation; do not silently use today's date.  The benchmark as_of_date shall be maintained in version-controlled dataset configuration and shared across Configurations A, B, and C and independent reference calculations. The value shall be finalized before dataset generation and shall not depend on the system execution date.  
 
 ### 2.5 Authorized scope and joins
 
@@ -179,6 +181,8 @@ These calculations support benchmark questions but are not additional entries in
 ## 5. Reference SQL Patterns (Illustrative)
 
 These SQL fragments demonstrate expected calculation semantics; they are **not** the independent, executed benchmark reference queries. The application must inject a trusted authorized-unit restriction through a verified query mechanism, not by accepting an LLM-written `IN` clause. All date parameters and user scopes are trusted, typed inputs.
+
+These SQL patterns illustrate calculation semantics only and shall not be used as executable application queries or benchmark references without trusted authorization enforcement, parameter validation, approved object access, and read-only execution controls.  
 
 ### 5.1 Net sales by month
 
@@ -291,7 +295,7 @@ The 50-case benchmark inventory exists, but numerical reference answers and exec
 
 ## 10. Milestone 2 Acceptance Considerations
 
-Design acceptance requires reviewed formulas, status/date conventions, classification/access implications, and traceability to the benchmark. Implementation acceptance additionally requires populated `BUSINESS_METRICS` records, working schema and synthetic data, independent reference SQL, and passing BM-01–BM-16 tests.
+Design acceptance requires reviewed formulas, status/date conventions, classification/access implications, and traceability to the benchmark. Implementation acceptance additionally requires populated `BUSINESS_METRICS` records, working schema and synthetic data, independent reference SQL, and passing BM-01–BM-18 tests.
 
 ---
 

@@ -320,7 +320,7 @@ Outstanding activities include:
 | DI-05 | Establish SQL parsing and validation design | High | Document validator behavior and negative test scenarios | Open | M3-M4 |
 | DI-06 | Define boundaries of result verification | Medium | Document deterministic and non-deterministic verification methods | Open | M4 |
 | DI-07 | Expand requirement-to-test-case traceability | Medium | Create detailed traceability matrix | Open | M2-M5 |
-| DI-08 | Standardize minor Markdown formatting and documentation navigation | Low | Apply documentation cleanup | Open | M1 |
+| DI-08 | Standardize minor Markdown formatting and documentation navigation | Low | Apply documentation cleanup | Closed - Verified | M1 |
 
 An open issue does not automatically prevent Milestone 1 acceptance. Acceptance depends on whether the issue affects a required criterion, creates an unresolved critical design risk, or has an approved disposition for a later milestone.
 

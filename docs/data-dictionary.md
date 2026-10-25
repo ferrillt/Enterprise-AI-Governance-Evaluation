@@ -229,6 +229,27 @@ Where cost analysis is scoped to a business unit, queries shall establish the pe
 
 The precise cost-access policy and associated negative test cases shall be finalized before implementing analytical access to restricted product costs.
 
+### Restricted Product-Cost Authorization Decision — AP-09
+
+**Decision:** Restricted product-cost access shall be denied until an approved, enforceable policy establishes business-unit scope and permitted cost disclosure.
+
+`PRODUCTS.standard_cost_cents` is classified as Restricted. The Finance Analyst role does not independently authorize unrestricted access to this field.
+
+Because `PRODUCTS` is a shared catalog without direct business-unit ownership, cost access shall not be granted through role membership or an unrestricted product query alone.
+
+Any future approved implementation must:
+
+1. Establish the requesting user's identity and authorized business units through trusted application controls.
+2. Verify explicit permission to access restricted product costs.
+3. Establish product relevance to authorized business units through approved transactional relationships.
+4. Prevent disclosure of costs associated exclusively with unauthorized business units.
+5. Reject requests when authorization or scope cannot be established.
+6. Pass positive and negative authorization tests before access is enabled.
+
+**AP-09 benchmark disposition:** Deny restricted-cost disclosure pending policy implementation and verification. This is an expected security behavior, not an analytical calculation failure.
+
+**Implementation status:** Policy decision documented; restricted-cost authorization implementation and verification remain open.
+
 ## 13. Data Quality Rules
 
 | ID | Rule | Verification |

@@ -75,7 +75,28 @@ Orders with status PENDING or CANCELED shall have a null completed_date in the i
 - “Last N completed months” excludes the current partial month. “Last 90 days” includes the 90 calendar dates ending on `as_of_date`.
 - Year-over-year comparisons use matched calendar windows and date bases. Month-over-month calculations use chronologically adjacent months.
 - If `as_of_date`, the requested period, or the date basis cannot be resolved safely, ask for clarification or document an explicit interpretation; do not silently use today's date.
-- The benchmark as_of_date shall be maintained in version-controlled dataset configuration and shared across Configurations A, B, and C and independent reference calculations. The value shall be finalized before dataset generation and shall not depend on the system execution date.  
+- The benchmark as_of_date shall be maintained in version-controlled dataset configuration and shared across Configurations A, B, and C and independent reference calculations. The value shall be finalized before dataset generation and shall not depend on the system execution date.
+
+### Ambiguous Combined-Sales Requests — AP-10
+
+**Decision:** Combined-sales requests that omit a reporting period or do not identify an unambiguous approved sales metric shall require clarification before calculation.
+
+The system shall establish the user's authorized business-unit scope through trusted application controls. It shall not infer additional authorized units from the natural-language request.
+
+For requests such as “Return combined sales for my assigned units,” the system shall:
+
+1. Determine the authorized business units independently of model-generated SQL.
+2. Ask for the reporting period when none is specified.
+3. Clarify whether gross or net sales is intended when the metric cannot be resolved unambiguously.
+4. Apply the approved metric definition and reporting-date basis after clarification.
+5. Aggregate only across the authorized business units.
+6. Deny the request if the required authorization cannot be established.
+
+The system shall not silently substitute the current month, previous month, year-to-date, or an unrestricted historical period.
+
+**AP-10 benchmark disposition:** Request clarification without executing a sales calculation until the required parameters are resolved.
+
+**Implementation status:** Interpretation decision documented; behavioral verification remains open. 
 
 ### 2.5 Authorized scope and joins
 

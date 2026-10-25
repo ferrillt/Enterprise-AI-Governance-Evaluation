@@ -77,7 +77,7 @@ These documents establish the proposed design baseline.
 | Milestone | Focus | Status |
 |---|---|---|
 | M1 | Architecture and Requirements | Completed - Design Baseline Approved |
-| M2 | Data and Governance Foundation | Not Started |
+| M2 | Data and Governance Foundation | In Progress |
 | M3 | AI Analytics Implementation | Not Started |
 | M4 | Governance and Validation | Not Started |
 | M5 | Evaluation and Publication | Not Started |

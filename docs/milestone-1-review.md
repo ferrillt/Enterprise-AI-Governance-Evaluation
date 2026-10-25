@@ -49,8 +49,8 @@ The objectives are to:
 | [Governance Framework](governance-framework.md) | Data classification, authorization, policy enforcement | Drafted |
 | [Risk Register](risk-register.md) | Risk identification, scoring, mitigation, verification | Drafted |
 | [Evaluation Plan](evaluation-plan.md) | Benchmark design, metrics, scoring, reproducibility | Drafted |
-| [Milestone 1 Review](docs/milestone-1-review.md) | Milestone 1 acceptance assessment, design findings, open issues, and closure criteria | Drafted |
-| [Evaluation Benchmark](evaluation/benchmark/test_cases.csv) | Fifty predefined analytical, governance, and unsupported-request cases | Drafted |
+| [Milestone 1 Review](milestone-1-review.md) | Milestone 1 acceptance assessment, design findings, open issues, and closure criteria | Drafted |
+| [Evaluation Benchmark](../evaluation/benchmark/test_cases.csv) | Fifty predefined analytical, governance, and unsupported-request cases | Drafted |
 
 ### 3.2 Review Boundaries
 

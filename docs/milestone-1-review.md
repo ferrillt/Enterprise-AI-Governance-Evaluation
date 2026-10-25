@@ -313,8 +313,8 @@ Outstanding activities include:
 
 | ID | Issue or Action | Priority | Planned Resolution | Status | Target Milestone |
 |---|---|---|---|---|---|
-| DI-01 | Complete individual benchmark case definitions and expected behaviors | High | Created `evaluation/benchmark/test_cases.csv` with 50 cases; numerical reference results deferred to Milestone 2 | Closed — Inventory Verified | 
-| DI-02 | Verify README links to all Milestone 1 documents | High | Update and inspect `README.md` | Closed - Verified |
+| DI-01 | Complete individual benchmark case definitions and expected behaviors | High | Created `evaluation/benchmark/test_cases.csv` with 50 cases; numerical reference results deferred to Milestone 2 | Closed — Inventory Verified | M1 |
+| DI-02 | Verify README links to all Milestone 1 documents | High | Updated and verified `README.md` | Closed — Verified | M1 |
 | DI-03 | Resolve multi-business-unit authorization representation | High | Document physical authorization mapping in the data dictionary | Open | M2 |
 | DI-04 | Define common versus configuration-specific security controls | High | Refine configuration control matrix | Open | M2 |
 | DI-05 | Establish SQL parsing and validation design | High | Document validator behavior and negative test scenarios | Open | M3-M4 |

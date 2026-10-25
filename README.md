@@ -70,6 +70,7 @@ The following documents establish the approved Milestone 1 architecture and requ
 | [Milestone 1 Review](docs/milestone-1-review.md) | Milestone 1 acceptance assessment and closure record |
 | [Evaluation Benchmark](evaluation/benchmark/test_cases.csv) | Fifty benchmark cases with expected behaviors |
 | [Data Dictionary](docs/data-dictionary.md) | Milestone 2 physical data model, entity attributes, relationships, data classifications, authorization mappings, and data-quality rules |
+| [Business Metrics](docs/business-metrics.md) | Authoritative business metric definitions, calculation rules, reporting conventions, validation criteria, and benchmark traceability |
 
 The Milestone 1 documents constitute the approved architecture and requirements baseline. The data dictionary begins the Milestone 2 physical design and remains subject to review and implementation verification.
 

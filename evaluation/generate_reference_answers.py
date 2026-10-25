@@ -24,17 +24,29 @@ from pathlib import Path
 # Reference query IDs from evaluation/reference_queries.sql. Some cases require
 # additional grouping/filters, so they are deliberately NOT mapped here.
 CASE_QUERY = {
-    'BA-02': 'R01', 'BA-03': 'R07', 'BA-05': 'R06', 'BA-06': 'R05',
-    'BA-09': 'R11', 'BD-01': 'R01', 'BD-02': 'R02', 'BD-03': 'R04',
-    'BD-04': 'R05', 'BD-05': 'R11', 'BD-06': 'R13', 'BD-08': 'R09',
-    'BD-09': 'R12', 'BD-10': 'R10', 'AP-10': 'R02',
+    'BA-01':'R14','BA-02':'R01','BA-03':'R19','BA-04':'R15','BA-05':'R06',
+    'BA-06':'R05','BA-07':'R16','BA-08':'R17','BA-09':'R11','BA-10':'R18',
+    'BD-01':'R01','BD-02':'R02','BD-03':'R04','BD-04':'R05','BD-05':'R11',
+    'BD-06':'R13','BD-07':'R29','BD-08':'R09','BD-09':'R12','BD-10':'R10',
+    'CA-01':'R19','CA-02':'R20','CA-03':'R21','CA-04':'R22','CA-05':'R23',
+    'CA-06':'R24','CA-07':'R25','CA-08':'R26','CA-09':'R27','CA-10':'R28',
 }
-# Case-specific time windows; date calculations use fixed as_of_date.
-LAST_MONTH = {'BA-06','BD-01','BD-02','BD-05','BD-08','BD-09'}
-LAST_QUARTER = {'BA-02','BA-05','BA-09','BD-03','BD-04','BD-06','BD-10'}
-LAST_YEAR = {'BA-03'}
-# Cases requiring interpretation (AP-10 has no specified period) are not run.
-CASE_QUERY.pop('AP-10')
+LAST_MONTH = {'BA-01','BA-04','BA-06','BA-08','BD-01','BD-02','BD-05','BD-08','BD-09'}
+LAST_QUARTER = {'BA-02','BA-05','BA-09','BD-03','BD-04','BD-06','BD-10','CA-03','CA-06','CA-08'}
+LAST_YEAR = {'BA-03','CA-02','CA-07','CA-10'}
+LAST_SIX_COMPLETED = {'CA-01'}
+LAST_SIX_MONTHS = {'CA-09'}
+LAST_90_DAYS = {'BA-07'}
+YEAR_TO_DATE = {'BD-07'}
+# CA-04: matching prior/current completed calendar years; deterministic comparison.
+YEAR_OVER_YEAR = {'CA-04'}
+# CA-05 has no specified reporting period; an all-available-history window is
+# explicitly recorded as a provisional interpretation, not a silent default.
+ALL_HISTORY = {'CA-05'}
+# BA-10 is a catalog snapshot, not a date-scoped sales calculation.
+CATALOG_SNAPSHOT = {'BA-10'}
+# AP-09: restricted product cost policy not yet approved; AP-10: unspecified
+# reporting period. Both remain pending rather than inventing policy or dates.
 
 
 def periods(asof):
@@ -51,8 +63,64 @@ def periods(asof):
             'year':(dt.date(asof.year-1,1,1),dt.date(asof.year,1,1))}
 
 
+def add_months(d, offset):
+    month_index = d.year * 12 + (d.month - 1) + offset
+    return dt.date(month_index // 12, month_index % 12 + 1, 1)
+
+
+def case_window(cid, asof, windows, manifest):
+    if cid in LAST_MONTH: return windows['month'], 'previous_complete_month'
+    if cid in LAST_QUARTER: return windows['quarter'], 'previous_complete_quarter'
+    if cid in LAST_YEAR: return windows['year'], 'previous_complete_year'
+    if cid in LAST_SIX_COMPLETED:
+        return (add_months(asof.replace(day=1),-6),asof.replace(day=1)), 'six_complete_months'
+    if cid in LAST_SIX_MONTHS:
+        return (add_months(asof.replace(day=1),-5),asof+dt.timedelta(days=1)), 'six_months_including_current_partial'
+    if cid in LAST_90_DAYS:
+        return (asof-dt.timedelta(days=89),asof+dt.timedelta(days=1)), 'last_90_calendar_days_inclusive'
+    if cid in YEAR_TO_DATE:
+        return (dt.date(asof.year,1,1),asof+dt.timedelta(days=1)), 'year_to_date_inclusive'
+    if cid in YEAR_OVER_YEAR:
+        return windows['year'], 'prior_completed_year_vs_year_before'
+    if cid in ALL_HISTORY:
+        return (dt.date.fromisoformat(manifest['start_date']),asof+dt.timedelta(days=1)), 'all_available_history_provisional_interpretation'
+    if cid in CATALOG_SNAPSHOT:
+        return (asof,asof+dt.timedelta(days=1)), 'catalog_snapshot_as_of_date'
+    raise ValueError('No supported date interpretation for '+cid)
+
+
+def enrich(cid, rows):
+    """Keep exact integer components; use string decimals for derived ratios."""
+    from decimal import Decimal, ROUND_HALF_UP
+    def ratio(n,d,scale=100):
+        if not d: return None
+        return str((Decimal(n)*Decimal(scale)/Decimal(d)).quantize(Decimal('0.01'),rounding=ROUND_HALF_UP))
+    if cid in ('BD-09',):
+        for r in rows:
+            r['aov_usd'] = (str((Decimal(r['net_sales_cents']) / Decimal(r['completed_orders']) / 100).quantize(Decimal('0.01'), rounding=ROUND_HALF_UP)) if r['completed_orders'] else None)
+    if cid=='CA-01':
+        previous=None
+        for r in rows:
+            current=r['net_sales_cents'];r['mom_change_cents']=None if previous is None else current-previous
+            r['mom_change_percent']=None if previous is None else ratio(current-previous,previous)
+            previous=current
+        # First month is baseline; no preceding month in requested six-month window.
+    if cid=='CA-03':
+        for r in rows:r['cancellation_rate_percent']=ratio(r['canceled_orders'],r['total_orders'])
+    if cid=='CA-04':
+        for r in rows:
+            r['change_cents']=r['current_net_sales_cents']-r['prior_net_sales_cents']
+            r['change_percent']=ratio(r['change_cents'],r['prior_net_sales_cents'])
+        rows[:]=[r for r in rows if r['change_cents']>0]
+    if cid=='CA-05':
+        for r in rows:r['share_percent']=ratio(r['net_sales_cents'],r['total_net_sales_cents'])
+    if cid=='CA-07':
+        for r in rows:r['average_monthly_net_sales_usd']=str((Decimal(r['total_net_sales_cents'])/Decimal(r['months_in_window'])/100).quantize(Decimal('0.01'),rounding=ROUND_HALF_UP)) if r['months_in_window'] else None
+    if cid=='BA-05':del rows[5:]
+    return rows
+
 def sql_blocks(path):
-    """Extract independently maintained R01-R13 SELECT statements by labels."""
+    """Extract independently maintained R01-R29 SELECT statements by labels."""
     import re
     raw = path.read_text(encoding='utf-8')
     found = {}
@@ -61,7 +129,7 @@ def sql_blocks(path):
         nxt = re.search(r'^-- R\d{2}\.', section, flags=re.MULTILINE)
         section = section[:nxt.start()] if nxt else section
         # Skip descriptive SQL comments, locate first SELECT.
-        match = re.search(r'(?m)^SELECT\b', section)
+        match = re.search(r'(?m)^(?:SELECT|WITH)\b', section)
         if match:
             statement = section[match.start():].split(';',1)[0].strip()
             found[m.group(1)] = statement
@@ -132,26 +200,29 @@ def main():
             entry.update(status='PENDING_REFERENCE_IMPLEMENTATION',
                          note='Case-specific independently verified SQL or explicit period/metric interpretation required.')
         else:
-            period='month' if cid in LAST_MONTH else 'quarter' if cid in LAST_QUARTER else 'year' if cid in LAST_YEAR else None
-            if period is None:
-                entry.update(status='PENDING_REFERENCE_IMPLEMENTATION',note='No unambiguous supported period mapping.')
-            else:
-                try:
-                    uid=choose_user(con,case['user_role'],case['authorized_scope'])
-                    ref=CASE_QUERY[cid]; sql=queries[ref]
-                    if not sql.lstrip().upper().startswith('SELECT') or ref not in queries:
-                        raise ValueError(f'Missing safe reference query {ref}')
-                    start,end=windows[period]
-                    params={'user_id':uid,'start_date':start.isoformat(),'end_date':end.isoformat(),
-                            'as_of_date':asof.isoformat()}
-                    cols=con.execute(sql,params)
-                    values=[dict(zip([c[0] for c in cols.description],row)) for row in cols.fetchall()]
-                    entry.update(status='PROVISIONAL_CALCULATED',reference_query_id=ref,
-                                 period_start=params['start_date'],period_end_exclusive=params['end_date'],
-                                 scope=case['authorized_scope'],result=values,
-                                 note='Provisional: metric approval, case semantics, and independent review outstanding.')
-                except (ValueError,sqlite3.Error) as exc:
-                    entry.update(status='PENDING_REFERENCE_IMPLEMENTATION',note=str(exc))
+            try:
+                uid=choose_user(con,case['user_role'],case['authorized_scope'])
+                ref=CASE_QUERY[cid]
+                if ref not in queries: raise ValueError(f'Missing reference query {ref}')
+                sql=queries[ref]
+                if not sql.lstrip().upper().startswith('SELECT') and not sql.lstrip().upper().startswith('WITH'):
+                    raise ValueError(f'Invalid reference query {ref}')
+                (start,end),interpretation=case_window(cid,asof,windows,manifest)
+                params={'user_id':uid,'start_date':start.isoformat(),'end_date':end.isoformat(),
+                        'as_of_date':asof.isoformat()}
+                if cid in YEAR_OVER_YEAR:
+                    params['prior_start']=dt.date(start.year-1,start.month,start.day).isoformat()
+                    params['prior_end']=start.isoformat()
+                cur=con.execute(sql,params)
+                values=[dict(zip([c[0] for c in cur.description],row)) for row in cur.fetchall()]
+                values=enrich(cid,values)
+                entry.update(status='PROVISIONAL_CALCULATED',reference_query_id=ref,
+                             period_start=params['start_date'],period_end_exclusive=params['end_date'],
+                             period_interpretation=interpretation,
+                             scope=case['authorized_scope'],result=values,
+                             note='Provisional: metric approval, case semantics, and independent review outstanding.')
+            except (ValueError,sqlite3.Error) as exc:
+                entry.update(status='PENDING_REFERENCE_IMPLEMENTATION',note=str(exc))
         entries.append(entry)
     con.close()
     from collections import Counter

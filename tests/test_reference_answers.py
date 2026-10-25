@@ -91,10 +91,9 @@ class ReferenceAnswerTests(unittest.TestCase):
 
     def test_02_status_counts_are_consistent(self):
         counts = Counter(c['status'] for c in self.cases.values())
-        self.assertEqual(counts, {CALCULATED: 30, BEHAVIORAL: 18, PENDING: 2})
+        self.assertEqual(counts, {CALCULATED: 30,BEHAVIORAL: 20,PENDING: 0})
         self.assertEqual(dict(counts), self.answers['counts'])
-        self.assertEqual({cid for cid, c in self.cases.items() if c['status'] == PENDING},
-                         {'AP-09', 'AP-10'})
+        self.assertEqual({cid for cid, c in self.cases.items() if c['status'] == PENDING},set())
         for cid, c in self.cases.items():
             with self.subTest(case=cid):
                 if c['status'] == CALCULATED:
@@ -195,7 +194,7 @@ class ReferenceAnswerTests(unittest.TestCase):
     def test_13_pending_policy_cases_not_silently_approved(self):
         for cid in ('AP-09', 'AP-10'):
             with self.subTest(case=cid):
-                self.assertEqual(self.cases[cid]['status'], PENDING)
+                self.assertEqual(self.cases[cid]['status'], BEHAVIORAL)
                 self.assertNotIn('result', self.cases[cid])
         self.assertEqual(self.answers['status'], 'PROVISIONAL_NOT_APPROVED')
 

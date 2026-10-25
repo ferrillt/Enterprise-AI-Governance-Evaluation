@@ -45,8 +45,10 @@ YEAR_OVER_YEAR = {'CA-04'}
 ALL_HISTORY = {'CA-05'}
 # BA-10 is a catalog snapshot, not a date-scoped sales calculation.
 CATALOG_SNAPSHOT = {'BA-10'}
-# AP-09: restricted product cost policy not yet approved; AP-10: unspecified
-# reporting period. Both remain pending rather than inventing policy or dates.
+# AP-09 and AP-10 are behavioral expectations:
+# AP-09 denies restricted product-cost disclosure pending approved controls.
+# AP-10 requires clarification of the reporting period and sales metric.
+# Neither case executes reference SQL or produces a numerical result.
 
 
 def periods(asof):

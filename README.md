@@ -69,9 +69,9 @@ The following documents establish the approved Milestone 1 architecture and requ
 | [Evaluation Plan](docs/evaluation-plan.md) | Benchmark design, experimental configurations, evaluation metrics, scoring, and reproducibility procedures |
 | [Milestone 1 Review](docs/milestone-1-review.md) | Milestone 1 acceptance assessment and closure record |
 | [Evaluation Benchmark](evaluation/benchmark/test_cases.csv) | Fifty benchmark cases with expected behaviors |
-| [Data Dictionary](docs/data-dictionary.md) | Includes all seven business entities |
+| [Data Dictionary](docs/data-dictionary.md) | Milestone 2 physical data model, entity attributes, relationships, data classifications, authorization mappings, and data-quality rules |
 
-These documents establish the proposed design baseline. 
+The Milestone 1 documents constitute the approved architecture and requirements baseline. The data dictionary begins the Milestone 2 physical design and remains subject to review and implementation verification.
 
 ## Project Milestones
 
@@ -95,7 +95,7 @@ All eleven Milestone 1 acceptance criteria were satisfied at the design level. O
 
 Planned activities include:
 
-- Defining the physical SQLite data model and data dictionary.
+- Refining the physical SQLite data model and data dictionary prior to schema implementation.
 - Establishing business-unit authorization mappings and common security safeguards.
 - Documenting authoritative business metric calculations.
 - Developing a reproducible synthetic enterprise dataset.
@@ -105,12 +105,13 @@ The AI analytics system has not yet been implemented, and its performance and se
 
 ## Planned Next Steps
 
-1. Complete the Milestone 1 documentation and acceptance review.
-2. Finalize the data dictionary, authorization mappings, and business metric definitions.
-3. Develop the reproducible synthetic enterprise dataset and SQLite schema.
-4. Establish the benchmark inventory and independently verified reference results.
-5. Implement the AI analytics configurations and governance controls.
-6. Execute comparative evaluations and publish findings.
+1. Finalize the Milestone 2 data dictionary, including referential integrity, authorization mappings, restricted cost access, and common security safeguards.
+2. Define and approve authoritative business metrics, including calculation formulas, transaction status rules, reporting periods, aggregation conventions, and rounding.
+3. Implement the SQLite physical schema and business-unit authorization mappings.
+4. Develop and validate a deterministic synthetic enterprise dataset.
+5. Implement automated data-quality and integrity tests.
+6. Develop independently verified reference SQL queries and expected benchmark results.
+7. Proceed to AI analytics implementation, governance control verification, and comparative evaluation in subsequent milestones.
 
 ## References
 

@@ -312,7 +312,7 @@ Outstanding activities include:
 ## 10. Design Issue and Action Register
 
 | ID | Issue or Action | Priority | Planned Resolution | Status | Target Milestone |
-|---|---|---|---|---|
+|---|---|---|---|---|---|
 | DI-01 | Complete individual benchmark case definitions and expected behaviors | High | Created `evaluation/benchmark/test_cases.csv` with 50 cases; numerical reference results deferred to Milestone 2 | Closed — Inventory Verified | 
 | DI-02 | Verify README links to all Milestone 1 documents | High | Update and inspect `README.md` | Closed - Verified |
 | DI-03 | Resolve multi-business-unit authorization representation | High | Document physical authorization mapping in the data dictionary | Open | M2 |

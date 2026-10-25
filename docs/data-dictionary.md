@@ -171,6 +171,18 @@ Approved roles: Sales Analyst, Operations Manager, Finance Analyst, Data Steward
 6. The mapping is not exposed to ordinary analytical SQL.
 7. `USERS.business_unit_id` retains primary assignment for compatibility, while this mapping and approved policies determine effective authorized scopes.
 
+**Authorization lifecycle and auditability**
+
+`USER_BUSINESS_UNITS` represents the current authorization state for each user and business-unit association. The composite primary key permits one current association per user and business unit. Historical changes to authorization grants, modifications, and revocations shall be recorded separately through governance audit events.
+
+Authorization changes must originate from trusted administrative processes. Model-generated SQL and natural-language requests shall not modify authorization mappings.
+
+**Common security boundary across AI configurations**
+
+Configurations A (Baseline), B (Metadata-Enriched), and C (Governed) shall enforce the same minimum security and execution safeguards, including trusted user identity, role-based authorization, business-unit restrictions, restricted-column protection, read-only query execution, and denial on authorization or validation failure.
+
+Configuration C may implement additional policy validation, analytical verification, and response controls. These enhanced controls shall not replace or weaken the minimum safeguards required for Configurations A and B.
+
 **DI-03:** Physical mapping is specified; policy implementation and verification remain open.
 
 ## 11. BUSINESS_METRICS
@@ -197,7 +209,7 @@ Initial metrics: Gross Sales, Net Sales, Order Volume, Cancellation Rate, Averag
 |---|---|
 | All foreign keys valid | SQLite constraints and `PRAGMA foreign_key_check` |
 | Every order contains an item | Cross-table test |
-| Order and customer share unit | Cross-table test or composite-key design |
+| Order and customer share unit | Enforce through the physical schema where practical; independently verify with cross-table integrity tests |
 | Order line numbers unique per order | `UNIQUE(order_id, line_number)` |
 | No duplicate user/unit association | Composite primary key |
 | Monetary values are integer cents | Type and range tests |
@@ -208,6 +220,14 @@ Initial metrics: Gross Sales, Net Sales, Order Volume, Cancellation Rate, Averag
 | Only approved metric versions used | Metadata filtering and tests |
 
 SQLite does not provide native enterprise row-level security. Trusted application controls must prevent authorization bypass through joins, subqueries, aggregations, or generated SQL.
+
+**Restricted cost access**
+
+`PRODUCTS` is a shared product catalog and does not directly identify business-unit ownership. Consequently, access to `standard_cost_cents` shall require an explicitly approved authorization policy.
+
+Where cost analysis is scoped to a business unit, queries shall establish the permitted business-unit context through authorized transactional relationships. Unrestricted queries against the shared product-cost column shall not be permitted solely because a user holds the Finance Analyst role.
+
+The precise cost-access policy and associated negative test cases shall be finalized before implementing analytical access to restricted product costs.
 
 ## 13. Data Quality Rules
 
@@ -264,6 +284,7 @@ Candidate indexes: `CUSTOMERS.business_unit_id`, `ORDERS.customer_id`, `ORDERS.b
 | DD-06 | Monetary rounding and benchmark tolerances | Reference conventions | M2 |
 | DD-07 | Metric version approval lifecycle | Metadata governance design | M2 |
 | DD-08 | Physical schema validation | SQLite DDL and tests | M2 |
+| DD-09 | Restricted product-cost authorization for a shared product catalog | Approve cost-access policy and verify business-unit scoping | M2–M4 |
 
 ## 18. Milestone 2 Verification Criteria
 

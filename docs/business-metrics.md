@@ -74,7 +74,8 @@ Orders with status PENDING or CANCELED shall have a null completed_date in the i
 - “This year to date” means January 1 through `as_of_date`, inclusive; implement as an exclusive upper bound of the next calendar day.
 - “Last N completed months” excludes the current partial month. “Last 90 days” includes the 90 calendar dates ending on `as_of_date`.
 - Year-over-year comparisons use matched calendar windows and date bases. Month-over-month calculations use chronologically adjacent months.
-- If `as_of_date`, the requested period, or the date basis cannot be resolved safely, ask for clarification or document an explicit interpretation; do not silently use today's date.  The benchmark as_of_date shall be maintained in version-controlled dataset configuration and shared across Configurations A, B, and C and independent reference calculations. The value shall be finalized before dataset generation and shall not depend on the system execution date.  
+- If `as_of_date`, the requested period, or the date basis cannot be resolved safely, ask for clarification or document an explicit interpretation; do not silently use today's date.
+- The benchmark as_of_date shall be maintained in version-controlled dataset configuration and shared across Configurations A, B, and C and independent reference calculations. The value shall be finalized before dataset generation and shall not depend on the system execution date.  
 
 ### 2.5 Authorized scope and joins
 

@@ -324,6 +324,18 @@ Outstanding activities include:
 
 An open issue does not automatically prevent Milestone 1 acceptance. Acceptance depends on whether the issue affects a required criterion, creates an unresolved critical design risk, or has an approved disposition for a later milestone.
 
+### 10.1 Deferred Design Issue Disposition
+
+The Milestone 1 review identified five remaining design issues (DI-03 through DI-07) requiring resolution during subsequent milestones. Each issue has been assigned a target milestone and a planned resolution activity.
+
+These issues are formally accepted as deferred implementation and verification work. Their deferral does not constitute acceptance of unresolved security vulnerabilities, approval of unrestricted data access, or verification of the proposed controls.
+
+The affected capabilities shall not be considered implemented or verified until their respective design decisions, controls, and acceptance evidence have been completed.
+
+DI-01, DI-02, and DI-08 have been closed. No outstanding Milestone 1 acceptance criteria remain.
+
+**Disposition:** Approved for deferral to assigned milestones without preventing Milestone 1 design baseline closure.
+
 ## 11. Requirements-to-Evidence Traceability
 
 | Requirement Area | Design Artifact | Planned Verification Evidence |
@@ -343,33 +355,32 @@ This matrix establishes design-level traceability. Detailed bidirectional tracea
 
 ## 12. Milestone 1 Exit Criteria
 
-Milestone 1 may be formally closed when:
-
-1. All six required design documents are present and accessible.
-2. AC-01 through AC-11 are satisfied or formally dispositioned through an approved change.
-3. The benchmark acceptance requirement is satisfied according to the approved requirements baseline.
-4. Outstanding design issues are recorded with planned resolution activities.
-5. Critical security and architectural inconsistencies are resolved or explicitly constrained.
-6. The README accurately represents project status and documentation.
-7. The Milestone 1 review record is updated with final acceptance results.
-
-Closing Milestone 1 does not imply that the proposed AI system is implemented, operational, secure, or compliant with production standards.
-
 ## 13. Review Decision
 
-**Current Decision: Design Baseline Accepted — Administrative Closure Pending**
+**Final Decision: Milestone 1 Approved — Administrative Closure Complete**
 
-The Milestone 1 review confirms that all eleven acceptance criteria have been satisfied at the design level.
+The Milestone 1 review confirms that all eleven acceptance criteria have been satisfied at the documented design level.
 
-The project has established its business objectives, requirements baseline, logical architecture, governance framework, risk register, evaluation methodology, and 50-case benchmark inventory.
+The approved baseline establishes the project objectives, requirements, logical architecture, governance framework, risk management approach, evaluation methodology, and 50-case benchmark inventory.
 
-Outstanding implementation-level design issues remain documented in Section 10. Before administrative closure, the project will record their disposition and confirm that each issue has an assigned resolution milestone.
+The design issues identified during review have been resolved or formally dispositioned. DI-01, DI-02, and DI-08 are closed. DI-03 through DI-07 remain open and are accepted as deferred work with assigned resolution milestones, as documented in Section 10.1.
 
-### 13.1 Required Actions Before Closure
+This decision authorizes progression to Milestone 2 — Data and Governance Foundation.
 
-- Confirm the disposition and target milestone for DI-03 through DI-08.
-- Verify that the README links to the Milestone 1 review and evaluation benchmark.
-- Record the final Milestone 1 closure decision.
+Milestone 1 approval does not constitute operational acceptance, verified security effectiveness, production readiness, or confirmation that the proposed performance targets have been achieved.
+
+### 13.1 Closure Verification
+
+| Closure Requirement | Final Assessment |
+|---|---|
+| Six required design documents accessible | Verified |
+| AC-01 through AC-11 | 11 of 11 Met at Design Level |
+| Fifty benchmark cases defined | Verified |
+| README documentation links | Verified |
+| DI-01, DI-02, and DI-08 | Closed |
+| DI-03 through DI-07 | Formally Deferred |
+| Outstanding Milestone 1 acceptance criteria | None |
+| Milestone 2 readiness | Approved to Proceed |
 
 ### 13.2 Final Acceptance Record
 
@@ -377,15 +388,17 @@ Outstanding implementation-level design issues remain documented in Section 10. 
 |---|---|
 | Milestone | M1 — Architecture and Requirements |
 | Review Date | October 24, 2026 |
+| Final Decision | Approved — Design Baseline Accepted |
+| Administrative Closure | Complete |
 | Acceptance Criteria | 11 of 11 Met at Design Level |
-| Current Decision | Design Baseline Accepted |
-| Final Administrative Closure | Pending Design Issue Disposition |
+| Closed Design Issues | DI-01, DI-02, DI-08 |
+| Deferred Design Issues | DI-03 through DI-07 |
 | Outstanding Acceptance Criteria | None |
-| Deferred Verification | Reference SQL, numerical results, and implementation testing |
+| Deferred Verification | Reference SQL, numerical results, security controls, and implementation testing |
 | Next Milestone | M2 — Data and Governance Foundation |
-| Final Closure Date | Pending |
+| Final Closure Date | October 24, 2026 |
 
-The approved design baseline does not establish operational readiness, verified security effectiveness, or achievement of performance targets.
+The closure date shall reflect the actual date of final approval. Outstanding implementation and verification activities will be tracked through their assigned milestones.
 
 ## 14. Milestone 2 Readiness
 
@@ -418,6 +431,6 @@ Review findings will be revisited as implementation and evaluation evidence beco
 
 ---
 
-**Milestone 1 Review Status:** Design Baseline Accepted — Administrative Closure Pending  
+**Milestone 1 Review Status:** Closed — Design Baseline Approved
 
-**Next Planned Activity:** Disposition remaining design issues, verify repository navigation, and finalize Milestone 1 administrative closure.
+**Next Planned Activity:** Begin Milestone 2 — Data and Governance Foundation, starting with the physical data model and data dictionary.

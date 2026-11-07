@@ -20,13 +20,13 @@ The project emphasizes enterprise AI architecture, governance, security, and mea
 
 ## Technology Stack
 
-Planned technologies include:
+Current and planned technologies include:
 
 - **Python:** AI orchestration, governance controls, data processing, and evaluation.
 - **SQL and SQLite:** Relational data storage and analytical query execution.
 - **Large Language Model API:** Natural-language interpretation and SQL generation.
 - **pandas:** Data processing and evaluation analysis.
-- **pytest:** Automated testing and verification.
+- **unittest:** Automated data-quality and reference-answer testing.
 - **Git and GitHub:** Version control, documentation, and project management.
 
 Technology selections may be refined during implementation.
@@ -71,8 +71,9 @@ The following documents establish the approved Milestone 1 architecture and requ
 | [Evaluation Benchmark](evaluation/benchmark/test_cases.csv) | Fifty benchmark cases with expected behaviors |
 | [Data Dictionary](docs/data-dictionary.md) | Milestone 2 physical data model, entity attributes, relationships, data classifications, authorization mappings, and data-quality rules |
 | [Business Metrics](docs/business-metrics.md) | Authoritative business metric definitions, calculation rules, reporting conventions, validation criteria, and benchmark traceability |
+| [Milestone 2 Review](docs/milestone-2-review.md) | Technical validation evidence, conditional acceptance, and remaining governance closure actions |
 
-The Milestone 1 documents constitute the approved architecture and requirements baseline. The data dictionary begins the Milestone 2 physical design and remains subject to review and implementation verification.
+The Milestone 1 documents constitute the approved architecture and requirements baseline. Milestone 2 implementation and technical validation are documented in the Milestone 2 review; formal governance closure remains pending.
 
 ## Project Milestones
 
@@ -103,18 +104,6 @@ These tests validate the implemented data foundation and provisional reference c
 See the [Milestone 2 Review](docs/milestone-2-review.md) for the acceptance assessment, test evidence, and remaining actions.
 
 **Subsequent work:** AI integration, runtime governance controls, and comparative evaluation.
-
-**Next Phase: Milestone 2 — Data and Governance Foundation**
-
-Planned activities include:
-
-- Refining the physical SQLite data model and data dictionary prior to schema implementation.
-- Establishing business-unit authorization mappings and common security safeguards.
-- Documenting authoritative business metric calculations.
-- Developing a reproducible synthetic enterprise dataset.
-- Preparing independently verified benchmark reference queries and expected results.
-
-The AI analytics system has not yet been implemented, and its performance and security targets have not yet been verified.
 
 ## Planned Next Steps
 

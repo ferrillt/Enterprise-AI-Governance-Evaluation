@@ -79,18 +79,30 @@ The Milestone 1 documents constitute the approved architecture and requirements 
 | Milestone | Focus | Status |
 |---|---|---|
 | M1 | Architecture and Requirements | Completed - Design Baseline Approved |
-| M2 | Data and Governance Foundation | In Progress |
+| M2 | Data and Governance Foundation | Conditional Acceptance — Technical Validation Complete; Governance Closure Pending |
 | M3 | AI Analytics Implementation | Not Started |
 | M4 | Governance and Validation | Not Started |
 | M5 | Evaluation and Publication | Not Started |
 
 ## Current Project Status
 
-**Milestone 1 — Architecture and Requirements: Completed**
+**Milestone 1 — Architecture and Requirements: Completed — Design Baseline Approved**
 
-Milestone 1 established the project charter, requirements specification, system architecture, governance framework, risk register, evaluation plan, and 50-case benchmark inventory.
+Milestone 1 established the project charter, requirements, architecture, governance framework, risk register, evaluation plan, and 50-case benchmark inventory.
 
-All eleven Milestone 1 acceptance criteria were satisfied at the design level. Outstanding implementation and verification activities are documented in the Milestone 1 review and assigned to subsequent milestones.
+**Milestone 2 — Data and Governance Foundation: Conditional Acceptance — Technical Validation Complete; Governance Closure Pending**
+
+Implemented components include the SQLite schema, deterministic synthetic-data generator, business metric specifications, provisional reference queries, reference-answer generation, and automated validation tests.
+
+The documented October 24, 2026 local test run passed all 28 tests: 14 data-quality tests and 14 reference-answer tests, with no failures or errors.
+
+Formal Milestone 2 closure remains pending alignment of the restricted-cost access policy, approval or documented deferral of business metric definitions, documentation updates, and retention of reproducibility evidence.
+
+These tests validate the implemented data foundation and provisional reference calculations. They do not establish AI response accuracy, runtime authorization enforcement, or production security.
+
+See the [Milestone 2 Review](docs/milestone-2-review.md) for the acceptance assessment, test evidence, and remaining actions.
+
+**Subsequent work:** AI integration, runtime governance controls, and comparative evaluation.
 
 **Next Phase: Milestone 2 — Data and Governance Foundation**
 
@@ -106,13 +118,12 @@ The AI analytics system has not yet been implemented, and its performance and se
 
 ## Planned Next Steps
 
-1. Finalize the Milestone 2 data dictionary, including referential integrity, authorization mappings, restricted cost access, and common security safeguards.
-2. Define and approve authoritative business metrics, including calculation formulas, transaction status rules, reporting periods, aggregation conventions, and rounding.
-3. Implement the SQLite physical schema and business-unit authorization mappings.
-4. Develop and validate a deterministic synthetic enterprise dataset.
-5. Implement automated data-quality and integrity tests.
-6. Develop independently verified reference SQL queries and expected benchmark results.
-7. Proceed to AI analytics implementation, governance control verification, and comparative evaluation in subsequent milestones.
+1. Align the governance access matrix with AP-09 by documenting restricted product-cost access as denied pending policy approval.
+2. Record approval or an explicit approved deferral for each business metric definition, keeping document and database versions consistent.
+3. Update remaining outdated project documentation.
+4. Regenerate and retain benchmark reference answers, the dataset manifest, checksums, and test evidence; document which generated artifacts are committed or maintained locally.
+5. Record the Milestone 2 closure decision after the remaining conditions are addressed.
+6. Implement AI analytics integration, runtime authorization and SQL validation controls, and comparative evaluation in subsequent milestones.
 
 ## References
 

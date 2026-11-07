@@ -57,7 +57,7 @@ Performance will be assessed using analytical accuracy, authorization compliance
 
 ## Project Documentation
 
-The following documents establish the approved Milestone 1 architecture and requirements baseline, including the formal acceptance review and evaluation benchmark inventory.
+The following documents cover the approved Milestone 1 baseline, Milestone 2 implementation, and validation and governance review records.
 
 | Document | Description |
 |---|---|
@@ -70,7 +70,7 @@ The following documents establish the approved Milestone 1 architecture and requ
 | [Milestone 1 Review](docs/milestone-1-review.md) | Milestone 1 acceptance assessment and closure record |
 | [Evaluation Benchmark](evaluation/benchmark/test_cases.csv) | Fifty benchmark cases with expected behaviors |
 | [Data Dictionary](docs/data-dictionary.md) | Milestone 2 physical data model, entity attributes, relationships, data classifications, authorization mappings, and data-quality rules |
-| [Business Metrics](docs/business-metrics.md) | Authoritative business metric definitions, calculation rules, reporting conventions, validation criteria, and benchmark traceability |
+| [Business Metrics](docs/business-metrics.md) | Proposed business metric definitions, calculation rules, reporting conventions, validation criteria, and benchmark traceability |
 | [Milestone 2 Review](docs/milestone-2-review.md) | Technical validation evidence, conditional acceptance, and remaining governance closure actions |
 
 The Milestone 1 documents constitute the approved architecture and requirements baseline. Milestone 2 implementation and technical validation are documented in the Milestone 2 review; formal governance closure remains pending.
